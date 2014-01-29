@@ -1,4 +1,5 @@
-var page = require('webpage').create(),
+var
+	page = require('webpage').create(),
 	system = require('system'),
 	fs = require('fs'),
 	config_filename = system.args[1],
@@ -11,14 +12,14 @@ if (!config_filename)
 	phantom.exit(1);
 }
 
-var config = JSON.parse(fs.read(config_filename));
+config = JSON.parse(fs.read(config_filename));
 
 if (!fs.exists(config.output_dir))
 {
 	fs.makeDirectory(config.output_dir);
 }
 
-page.onConsoleMessage = function(msg, line, source) { console.log(msg); }
+page.onConsoleMessage = function(msg, line, source) { console.log(msg); };
 
 page.open(config.target_url, function (status) {
 	if (status !== 'success')
@@ -28,8 +29,7 @@ page.open(config.target_url, function (status) {
 	
 	setTimeout(function () {
 		var shots = page.evaluate(function (selectors) {
-			var ret = [],
-				elem;
+			var elem;
 			
 			for (var i = 0; i < selectors.length; i++)
 			{
