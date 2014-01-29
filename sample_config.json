@@ -1,0 +1,10 @@
+{
+	"output_dir" : "test",
+	
+	"target_url" : "http://iain.biodo.me/shotter/test.html",
+	
+	"selectors"  : [
+		{ "descriptor" : "body",     "css_selector" : "body" },
+		{ "descriptor" : "first_h1", "css_selector" : "h1:nth-of-type(1)" }
+	]
+}
